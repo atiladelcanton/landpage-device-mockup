@@ -1,0 +1,24 @@
+{
+  "name": "landpage-device-mockup",
+  "version": "1.0.0",
+  "description": "Landpage CSS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atiladelcanton/landpage-device-mockup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atiladelcanton/landpage-device-mockup/issues"
+  },
+  "homepage": "https://github.com/atiladelcanton/landpage-device-mockup#readme",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}

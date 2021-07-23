@@ -1,36 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Device Mockups</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <main class="container">
-        <section class="description">
-            <h1 class="description__text description__text--title">
-                Device Mockups
-            </h1>
-            <h2 class="description__text description__text--subtitle">
-                UX/UI Design
-            </h2>
-            <p class="description__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis augue eget ante pharetra ultrices.
-                Integer ullamcorper pretium justo, at fermentum nunc convallis a. Mauris ac est lobortis risus gravida
-                efficitur.</p>
+      <section class="description">
+        <h1 class="description__text description__text--title">
+          Device Mockups
+          <div class="degrade"></div>
+        </h1>
+        <h2 class="description__text description__text--subtitle">
+          UX/UI Design
+        </h2>
+        <p class="description__text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis
+          augue eget ante pharetra ultrices. Integer ullamcorper pretium justo,
+          at fermentum nunc convallis a. Mauris ac est lobortis risus gravida
+          efficitur.
+        </p>
 
-            <a href="" class="description__button">Veja Mais</a>
-        </section>
-        <section class="mockup">
-            <div class="mockup__elipse"></div>
-            <div class="mockup__mobile">
-                <img src="./assets/img/device_mockup.png" alt="Mockup Image" />
-            </div>
-        </section>
+        <a href="" class="description__button">Veja Mais</a>
+      </section>
+      <section class="mockup" id="mockup">
+        <div class="mockup__elipse" id="mockup__elipse"></div>
+        <div class="mockup__mobile" id="mockup__mobile">
+          <img src="./assets/img/device_mockup.png" alt="Mockup Image" />
+        </div>
+      </section>
     </main>
-</body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+    <script>
+      window.onload = function () {
+        let mocukup = document.getElementById("mockup");
+        mocukup.addEventListener("mousemove", (event, element) => {
+          var xPos = event.clientX / window.outerWidth - 0.5,
+            yPos = event.clientY / window.innerHeight - 0.5;
+          TweenLite.to("#mockup__mobile", 1, {
+            rotationY: xPos * 100,
+            rotationX: yPos * 100,
+            ease: Power1.easeOut,
+          });
+        });
+        gsap.to(".description__text--subtitle", {
+          duration: 1,
+          ease: "bounce",
+          x: 0,
+        });
+        var tl = gsap.timeline();
+        tl.to(".description__text--title", {
+          duration: 1,
+          scale: 1,
+          ease: "bounce",
+        });
+        tl.fromTo(
+          ".degrade",
+          {
+            duration: 2,
+            width: "0%",
+            ease: "bounce",
+          },
+          {
+            duration: 2,
+            width: "100%",
+            ease: "bounce",
+            onComplete: () => {
+              document
+                .getElementsByClassName("description__text--title")[0]
+                .classList.add("degrade__text");
+            },
+          }
+        ).to(".degrade", {
+          duration: 2,
+          width: "0%",
+          ease: "bounce",
+        });
+      };
+    </script>
+  </body>
 </html>

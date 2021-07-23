@@ -1,12 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;1,500;1,600&display=swap");
 
+:root {
+  --orange-color: #ff8a00;
+  --purple-color: #97006d;
+  --gray-light-color: #ebebeb;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-  background: #fff;
   font-family: "Raleway", sans-serif;
   display: flex;
   min-height: 100vh;
@@ -18,6 +22,27 @@ body {
   flex-direction: row;
   width: 1198px;
   margin: 0 auto;
+}
+
+.degrade {
+  background: linear-gradient(
+    to left,
+    var(--purple-color),
+    var(--orange-color)
+  );
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+.degrade__text {
+  background: linear-gradient(
+    to left,
+    var(--purple-color),
+    var(--orange-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .description {
   display: flex;
@@ -33,15 +58,16 @@ body {
 .description__text--title {
   font-size: 60px;
   font-weight: 600;
-  background: linear-gradient(to left, #97006d, #ff8a00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  transform: scale(0);
 }
+
 .description__text--subtitle {
-  color: #ebebeb;
+  color: var(--gray-light-color);
   font-size: 50px;
   font-weight: 500;
   margin-bottom: 34px;
+  transform: translateX(-120%);
+  position: relative;
 }
 .description__button {
   margin: 58px 0;
@@ -59,12 +85,20 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to left, #97006d, #ff8a00);
+  background: linear-gradient(
+    to left,
+    var(--purple-color),
+    var(--orange-color)
+  );
   z-index: -1;
   transition: 0.7s ease;
 }
 .description__button:hover {
-  background: linear-gradient(to left, #97006d, #ff8a00);
+  background: linear-gradient(
+    to left,
+    var(--purple-color),
+    var(--orange-color)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -81,7 +115,11 @@ body {
 .mockup__elipse {
   width: 569px;
   height: 569px;
-  background: linear-gradient(to left, #97006d, #ff8a00);
+  background: linear-gradient(
+    to left,
+    var(--purple-color),
+    var(--orange-color)
+  );
   border-radius: 50%;
 }
 .mockup__mobile {
